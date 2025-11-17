@@ -1,0 +1,8 @@
+twem1: 
+  listen: 0.0.0.0:22121
+  hash: fnv1a_64
+  distribution: ketama
+  redis: true
+  redis_auth: redispass
+  servers: 
+    - "redis:6379:1 redis-1"

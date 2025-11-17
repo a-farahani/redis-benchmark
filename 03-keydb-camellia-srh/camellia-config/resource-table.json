@@ -1,0 +1,18 @@
+{
+  "type": "simple",
+  "operation": {
+    "type": "rw_separate",
+    "read": {
+      "resources": [
+        "redis://redispass@keydb:6379"
+      ],
+      "type": "random"
+    },
+    "write": {
+      "resources": [
+        "redis://redispass@keydb:6379"
+      ],
+      "type": "multi"
+    }
+  }
+}

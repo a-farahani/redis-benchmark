@@ -1,0 +1,22 @@
+{
+  "type": "simple",
+  "operation": {
+    "type": "rw_separate",
+    "read": {
+      "resources": [
+        "redis-cluster://redispass@redis-1:6379",
+        "redis-cluster://redispass@redis-2:6379",
+        "redis-cluster://redispass@redis-3:6379"
+      ],
+      "type": "random"
+    },
+    "write": {
+      "resources": [
+        "redis-cluster://redispass@redis-1:6379",
+        "redis-cluster://redispass@redis-2:6379",
+        "redis-cluster://redispass@redis-3:6379"
+      ],
+      "type": "multi"
+    }
+  }
+}

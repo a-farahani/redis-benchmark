@@ -1,0 +1,28 @@
+{
+  "type": "simple",
+  "operation": {
+    "type": "rw_separate",
+    "read": {
+      "resources": [
+        "redis-cluster-slaves://@redis-1:6379?withMaster=false",
+        "redis-cluster-slaves://@redis-2:6379?withMaster=false",
+        "redis-cluster-slaves://@redis-3:6379?withMaster=false",
+        "redis-cluster-slaves://@redis-4:6379?withMaster=false",
+        "redis-cluster-slaves://@redis-5:6379?withMaster=false",
+        "redis-cluster-slaves://@redis-6:6379?withMaster=false"
+      ],
+      "type": "random"
+    },
+    "write": {
+      "resources": [
+        "redis-cluster://@redis-1:6379",
+        "redis-cluster://@redis-2:6379",
+        "redis-cluster://@redis-3:6379",
+        "redis-cluster://@redis-4:6379",
+        "redis-cluster://@redis-5:6379",
+        "redis-cluster://@redis-6:6379"
+      ],
+      "type": "multi"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  redis:
+    image: redis:8-bookworm
+    container_name: redis
+    # volumes:
+    #   - ./redis-1:/data
+    command: redis-server --requirepass redispass
+
+  twemproxy:
+    image: malexer/twemproxy:0.5.0
+    container_name: twemproxy
+    command: ["nutcracker", "-c", "/etc/nutcracker.yml"]
+    volumes:
+      - ./twemproxy-config/nutcracker.yml:/etc/nutcracker.yml
+
+  srh:
+    image: hiett/serverless-redis-http:0.0.10
+    container_name: srh
+    ports:
+      - "80:80"
+    environment:
+      - SRH_MODE=env
+      - SRH_PORT=80
+      - SRH_MAX_CONNECTIONS=420
+      - SRH_CONNECTION_STRING=redis://:redispass@twemproxy:22121
+      - SRH_TOKEN=kar52RHx11vrydWlcV6jDOoXzAxBd8fI08QVQz3IHP4TzSQaO4P0bRJS7JIlqDK8

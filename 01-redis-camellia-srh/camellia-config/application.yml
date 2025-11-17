@@ -1,0 +1,21 @@
+server:
+  port: '6379'
+spring:
+  application:
+    name: camellia-redis-proxy-server
+camellia-redis-proxy:
+  console-port: 16379
+  password: camelliapass
+  monitor-enable: true
+  monitor-interval-seconds: 60
+  monitor-callback-class-name: com.netease.nim.camellia.redis.proxy.monitor.LoggingMonitorCallback
+  plugins: 
+    - hotKeyPlugin
+    - monitorPlugin
+    - bigKeyPlugin
+    - hotKeyCachePlugin
+  transpond:
+    type: local
+    local:
+      type: complex
+      json-file: resource-table.json

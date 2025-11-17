@@ -1,0 +1,22 @@
+{
+  "type": "simple",
+  "operation": {
+    "type": "rw_separate",
+    "read": {
+      "resources": [
+        "redis-sentinel-slaves://redispass@sentinel-1:26379/mymaster?withMaster=false",
+        "redis-sentinel-slaves://redispass@sentinel-2:26379/mymaster?withMaster=false",
+        "redis-sentinel-slaves://redispass@sentinel-3:26379/mymaster?withMaster=false"
+      ],
+      "type": "random"
+    },
+    "write": {
+      "resources": [
+        "redis-sentinel://redispass@sentinel-1:26379/mymaster",
+        "redis-sentinel://redispass@sentinel-2:26379/mymaster",
+        "redis-sentinel://redispass@sentinel-3:26379/mymaster"
+      ],
+      "type": "multi"
+    }
+  }
+}

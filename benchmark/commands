@@ -1,0 +1,8 @@
+# SET benchmark
+wrk -t12 -c100 -d30s -s srh_raw_set.lua http://localhost
+
+# GET benchmark
+wrk -t12 -c100 -d30s -s srh_raw_get.lua http://localhost
+
+# Mixed workload (50% GET, 50% SET)
+wrk -t12 -c100 -d30s -s srh_raw_mixed.lua http://localhost
