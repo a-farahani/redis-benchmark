@@ -61,7 +61,7 @@ services:
     # volumes:
     #     - ./redis-3:/data
     #     - ./redis-3/conf/redis.conf:/etc/redis/redis.conf
-  
+
   # temp-redis:
   #   image: redis:8-bookworm
   #   container_name: temp-redis
@@ -78,7 +78,7 @@ services:
     image: hiett/serverless-redis-http:0.0.10
     container_name: srh
     ports:
-      - "80:80"
+      - "127.0.0.1:80:80"
     environment:
       - SRH_MODE=env
       - SRH_PORT=80

@@ -5,7 +5,7 @@ services:
     hostname: redis-1
     # volumes:
     #   - ./redis-1:/data
-    command: redis-server --requirepass redispass 
+    command: redis-server --requirepass redispass
 
   redis-2:
     image: redis:8-bookworm
@@ -89,7 +89,7 @@ services:
     image: hiett/serverless-redis-http:0.0.10
     container_name: srh
     ports:
-      - "80:80"
+      - "127.0.0.1:80:80"
     environment:
       - SRH_MODE=env
       - SRH_PORT=80
