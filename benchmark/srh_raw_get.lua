@@ -6,7 +6,7 @@ counter = 0
 
 function request()
     counter = counter + 1
-    local key_num = math.random(1, 1000)
+    local key_num = math.random(1, 1000000)
     local body = string.format('["GET", "bench_key_%d"]', key_num)
     return wrk.format("POST", "/", wrk.headers, body)
 end

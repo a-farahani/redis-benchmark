@@ -6,7 +6,7 @@ counter = 0
 
 function request()
     counter = counter + 1
-    local key_num = math.random(1, 1000)
+    local key_num = math.random(1, 1000000)
     
     if math.random() < 0.5 then
         -- GET request (50%)
